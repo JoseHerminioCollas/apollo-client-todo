@@ -10,9 +10,9 @@ const ADD_TODO = gql`
 `;
 const GET_TODOS = gql`
   query GetTodos {
-    books {
+    todos {
       title 
-      author
+      description
     }
   }
 `;
@@ -24,10 +24,10 @@ const AddTodo = () => {
       mutation={ADD_TODO}
       update={(cache, { data: { b }}) => {
         console.log('arg', b)
-        const { books } = cache.readQuery({ query: GET_TODOS });
+        const { todos } = cache.readQuery({ query: GET_TODOS });
         cache.writeQuery({
           query: GET_TODOS,
-          data: { books: books.concat([{__typename: 'Book', title: b, author: "abvc"}]) },
+          data: { todos: todos.concat([{__typename: 'Todo', title: b, author: "abvc"}]) },
         });
 
       } }
@@ -61,7 +61,7 @@ const Books = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
 console.log(data)
-      return data.books.map(({ title }) => (
+      return data.todos.map(({ title }) => (
         <div key={title + `new Date()`}>
           <p>t : {title}: </p>
         </div>
@@ -69,16 +69,15 @@ console.log(data)
     } }
   </Query>
 );
-const uri = "http://localhost:4000/graphql"
-const uri2 = "http://pepple:4000/graphql"
+const uri = "http://goatstone.com:4000/graphql"
 const client = new ApolloClient({
-  uri: uri2
+  uri
 });
 client
   .query({
     query: gql`
       {
-        books { title }
+        todos { title }
       }
     `
   })
