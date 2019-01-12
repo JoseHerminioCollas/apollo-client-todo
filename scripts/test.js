@@ -15,5 +15,5 @@ require('../config/env')
 
 const jest = require('jest')
 
-const jestArgs = ['--watch', '--coverage', '--verbose']
+const jestArgs = ['--coverage', '--verbose']
 jest.run(jestArgs)
