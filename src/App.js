@@ -1,7 +1,8 @@
 import React from 'react'
-import { ApolloProvider, Query, Mutation } from 'react-apollo'
-import ApolloClient from 'apollo-boost'
+import { ApolloProvider, Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import apolloClient from './apollo-client'
+import Todos from './component/Todo'
 
 const ADD_TODO = gql`
   mutation ABC($z: String!) {
@@ -11,7 +12,7 @@ const ADD_TODO = gql`
 const GET_TODOS = gql`
   query GetTodos {
     todos {
-      title 
+      title
       description
     }
   }
@@ -52,47 +53,13 @@ const AddTodo = () => {
     </Mutation>
   )
 }
-const Books = () => (
-  <Query
-    query={GET_TODOS}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>
-      if (error) return <p>Error :(</p>
-      // console.log(data)
-      return data.todos.map(({ title }) => (
-        <div key={`${title}new Date()`}>
-          <p>
-            t :
-            {title}
-            :
-            {' '}
-          </p>
-        </div>
-      ))
-    } }
-  </Query>
-)
-
-const uri = 'http://goatstone.com:4000/graphql'
-const client = new ApolloClient({
-  uri,
-})
-client.query({
-  query: gql`
-      {
-        todos { title }
-      }
-    `,
-})
-  .then(result => result)
 
 const App = () => (
-  <ApolloProvider client={client}>
+  <ApolloProvider client={apolloClient}>
     <div className="App">
       <header className="App-header">
         <AddTodo />
-        <Books />
+        <Todos />
       </header>
     </div>
   </ApolloProvider>
