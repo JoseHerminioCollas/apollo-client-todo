@@ -1,22 +1,11 @@
 import React from 'react'
 import { ApolloProvider, Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
 import apolloClient from './apollo-client'
 import Todos from './component/Todo'
 
-const ADD_TODO = gql`
-  mutation ABC($z: String!) {
-    b(z: $z) 
-  }
-`
-const GET_TODOS = gql`
-  query GetTodos {
-    todos {
-      title
-      description
-    }
-  }
-`
+import ADD_TODO from './graphql/AddTodo'
+import GET_TODOS from './graphql/get-todos'
+
 const AddTodo = () => {
   let input
 
