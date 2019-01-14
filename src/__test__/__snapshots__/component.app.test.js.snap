@@ -24,28 +24,3 @@ exports[`matches a former snapshot 1`] = `
   </p>
 </section>
 `;
-
-exports[`renders without crashing 1`] = `
-<section
-  className="todo-app"
->
-  <header>
-    Todos
-  </header>
-  <div>
-    <form
-      onSubmit={[Function]}
-    >
-      <input />
-      <button
-        type="submit"
-      >
-        Add Todo
-      </button>
-    </form>
-  </div>
-  <p>
-    Loading...
-  </p>
-</section>
-`;
