@@ -1,8 +1,11 @@
 import gql from 'graphql-tag'
 
 const ADD_TODO = gql`
-  mutation ABC($z: String!) {
-    b(z: $z)
+  mutation ABC($title: String!, $description: String) {
+    addTodo(title: $title, description: $description) {
+      title
+      description
+    }
   }
 `
 

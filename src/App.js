@@ -12,21 +12,27 @@ const AddTodo = () => {
   return (
     <Mutation
       mutation={ADD_TODO}
-      update={(cache, { data: { b } }) => {
-        // console.log('arg', b)
+      update={(cache, { data: { addTodo } }) => {
         const { todos } = cache.readQuery({ query: GET_TODOS })
+        console.log('x', addTodo)
         cache.writeQuery({
           query: GET_TODOS,
-          data: { todos: todos.concat([{ __typename: 'Todo', title: b, author: 'abvc' }]) },
+          data: {
+            todos: todos.concat([{
+              __typename: 'Todo',
+              title: addTodo.title,
+              description: addTodo.description,
+            }]),
+          },
         })
       }}
     >
-      {b => (
+      {addTodo => (
         <div>
           <form
             onSubmit={(e) => {
               e.preventDefault()
-              b({ variables: { z: input.value } })
+              addTodo({ variables: { title: input.value } })
               input.value = ''
             }}
           >
