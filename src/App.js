@@ -7,12 +7,13 @@ import AddTodo from './component/AddTodo'
 
 const App = () => (
   <ApolloProvider client={apolloClient}>
-    <div className="App">
-      <header className="App-header">
-        <AddTodo />
-        <Todos />
+    <section className="todo-app">
+      <header>
+        Todos
       </header>
-    </div>
+      <AddTodo />
+      <Todos />
+    </section>
   </ApolloProvider>
 )
 
