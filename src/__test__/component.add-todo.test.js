@@ -6,7 +6,7 @@ import apolloClient from '../apollo-client'
 import AddTodo from '../component/AddTodo'
 
 describe('AddTodo Component', () => {
-  it('renders without crashing', () => {
+  test('renders without crashing', () => {
     const div = document.createElement('div')
     const Comp = (
       <ApolloProvider client={apolloClient}>

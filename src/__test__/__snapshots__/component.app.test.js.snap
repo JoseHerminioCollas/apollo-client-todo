@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches a former snapshot 1`] = `
+exports[`Todo Application matches a former snapshot 1`] = `
 <section
   className="todo-app"
 >
