@@ -50,12 +50,12 @@ describe('Todo Application', () => {
   })
   test('should populate Todo display when a Todo is added',
     async () => {
-      const Comp = (
-        <MockedProvider mock={mocks}>
-          <App />
-        </MockedProvider>
-      )
-      const testRenderer = renderer.create(Comp)
+      // const Comp = (
+      //   <MockedProvider mock={mocks}>
+      //     <App />
+      //   </MockedProvider>
+      // )
+      // const testRenderer = renderer.create(Comp)
       // const testInstance = testRenderer.root
       await wait(0) // wait for response
       // add todo

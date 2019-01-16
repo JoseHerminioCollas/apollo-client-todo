@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
 
-import apolloClient from '../apollo-client'
+import apolloClientMock from './apollo-client-mock'
 import AddTodo from '../component/AddTodo'
 
 describe('AddTodo Component', () => {
   test('renders without crashing', () => {
     const div = document.createElement('div')
     const Comp = (
-      <ApolloProvider client={apolloClient}>
+      <ApolloProvider client={apolloClientMock}>
         <AddTodo />
       </ApolloProvider>
     )
