@@ -9,5 +9,6 @@ module.exports = {
         "test": true,
         "expect": true,
         "document": true,
+        "beforeEach": true,
     }
 }

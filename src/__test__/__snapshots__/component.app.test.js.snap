@@ -19,8 +19,8 @@ exports[`Todo Application matches a former snapshot 1`] = `
       </button>
     </form>
   </div>
-  <p>
+  <li>
     Loading...
-  </p>
+  </li>
 </section>
 `;
