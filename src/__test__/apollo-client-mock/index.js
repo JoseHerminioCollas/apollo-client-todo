@@ -1,6 +1,5 @@
 import apolloClientMock from './apollo-client-mock'
 
-const resolvers = require('./schema/resolvers')
-const typeDefs = require('./schema/schema')
+import resolvers from './schema/resolvers'
 
-module.exports = { resolvers, typeDefs, apolloClientMock }
+export { resolvers, apolloClientMock }
