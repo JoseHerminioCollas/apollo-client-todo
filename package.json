@@ -87,6 +87,10 @@
       "react-app-polyfill/jsdom",
       "cross-fetch"
     ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/src/__test__/apollo-client-mock/"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
