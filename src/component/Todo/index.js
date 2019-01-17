@@ -12,15 +12,15 @@ const Todos = () => (
       return (
         <section className="todos">
           <header>Todos</header>
-          <ul>
+          <section>
             {data.todos.map(({ title, description }) => (
-              <li key={`${title}new Date()`}>
+              <article key={`${title}new Date()`}>
                 {title}
                 :
                 {description}
-              </li>
+              </article>
             ))}
-          </ul>
+          </section>
         </section>
       )
     } }

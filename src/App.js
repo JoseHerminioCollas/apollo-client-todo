@@ -7,7 +7,7 @@ import AddTodo from './component/AddTodo'
 const App = () => (
   <section className="todo-app">
     <header>
-      Todos
+      Apollo Todos
     </header>
     <AddTodo />
     <Todos />

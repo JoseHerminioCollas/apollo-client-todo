@@ -1,12 +1,54 @@
+$theme-base: (
+  'foreground': green,
+  'foreground-a': blue,
+  'background': red,
+  'background-a': green,
+  'action': red,
+  'action-a': blue,
+  'hightlight': red,
+  'message': blue
+);
+$theme-light: (
+  'foreground': #000,
+  'foreground-a': #111,
+  'background': #fff,
+  'background-a': #eee,
+  'action': orange,
+  'action-a': red,
+  'hightlight': blue,
+  'message': darkgray
+);
+$theme-dark: (
+  'foreground': #ccc,
+  'foreground-a': #aaa,
+  'background': #000,
+  'background-a': #333,
+  'action': red,
+  'action-a': green,
+  'hightlight': orange,
+  'message': black
+);
+$themes: ('base': $theme-base, 'light': $theme-light, 'dark': $theme-dark );
+@function setStyleProp($characteristic: 'foreground', $theme: 'dark' ){
+  $selectedTheme: map-get($themes, $theme);
+  $v: map-get($selectedTheme, $characteristic);
+  @return $v
+}
 section.todo-app {
   font-family: sans-serif;
   position: absolute;
   display: flex;
   flex-direction: row;
-  background: #fff;
+  justify-content: space-between;
+  width: 95%;  
+  max-width: 900px;
+  background-color: setStyleProp('background');
+  padding: 1.5em;
   > header {
-    color: #eee;
-    background: #222;
+    font-weight: 700;
+    color: setStyleProp('foreground-a');
+    background: setStyleProp('background-a');
     padding: 1em;
+    margin: 0 6px;
   }
 }

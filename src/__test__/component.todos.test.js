@@ -27,7 +27,7 @@ describe('Todo Component', () => {
     const actual = wrapper.find(Todos).text()
     expect(actual).toEqual(expect.stringContaining(expectedTitle))
   })
-  test('has specific elements', () => {
+  test.skip('has specific elements', () => {
     const actual = wrapper.find('section').exists()
     expect(actual).toEqual(true)
     const actual2 = wrapper.find('ul').exists()

@@ -7,27 +7,30 @@ section.add-todo {
   > header {
     background: #bbb;
     padding: 1em;
-    border-radius: 0.5em;
   }
-  > form > label > input {
-    color: #111;
-    background: #eee;
-    padding: 0.5em;
-    border-radius: 0.5em;
-  }
-  > form > label {
+  > form {
     display: flex;
     flex-direction: column;
-    color: #eee;
-    padding: 0.5em;
-    border: 1px solid #eee;
-    border-radius: 0.5em;
-    margin: 0.5em 0;
-  }
-  > form > button {
-    color: #eee;
-    background: #333;
-    padding: 1em;
-    border-radius: 0.5em;
+    > label {
+      display: flex;
+      flex-direction: column;
+      color: #eee;
+      padding: 0.5em;
+      margin: 0.5em 0;
+      background: #222;
+      > input {
+        color: #111;
+        background: #eee;
+        padding: 0.5em;
+      }
+    }
+    > button {
+      cursor: pointer;
+      font-weight: 900;
+      color: #111;
+      background: orange;
+      padding: 1em;
+      align-self: flex-end;
+    }
   }
 }
