@@ -7,18 +7,27 @@ exports[`Todo Application matches a former snapshot 1`] = `
   <header>
     Todos
   </header>
-  <div>
-    <form
-      onSubmit={[Function]}
-    >
-      <input />
+  <section
+    className="add-todo"
+  >
+    <header>
+      Add A Todo
+    </header>
+    <form>
+      <input
+        name="title"
+      />
+      <input
+        name="description"
+      />
       <button
+        onClick={[Function]}
         type="submit"
       >
         Add Todo
       </button>
     </form>
-  </div>
+  </section>
   <li>
     Loading...
   </li>

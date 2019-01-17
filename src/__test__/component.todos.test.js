@@ -11,7 +11,6 @@ enzyme.configure({ adapter: new Adapter() })
 function ApolloTodo() {
   return (
     <ApolloProvider client={apolloClientMock}>
-      <div>x</div>
       <Todos />
     </ApolloProvider>
   )
@@ -31,5 +30,7 @@ describe('Todo Component', () => {
   test('has specific elements', () => {
     const actual = wrapper.find('section').exists()
     expect(actual).toEqual(true)
+    const actual2 = wrapper.find('ul').exists()
+    expect(actual2).toEqual(true)
   })
 })

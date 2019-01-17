@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 import enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import { MockedProvider } from 'react-apollo/test-utils'
-import wait from 'waait'
+// import wait from 'waait'
 
 import App from '../App'
 // import Todo from '../component/Todo'
@@ -57,13 +57,13 @@ describe('Todo Application', () => {
       // )
       // const testRenderer = renderer.create(Comp)
       // const testInstance = testRenderer.root
-      await wait(0) // wait for response
+      // await wait(0) // wait for response
       // add todo
       // check for todo
       // const actual = testInstance.findByType(Todo).instance
       // const actual2 = JSON.stringify(actual)
-      const expectedValue = 'Todos'
-      expect('Todos').toContain(expectedValue)
+      // const expectedValue = 'Todos'
+      // expect('Todos').toContain(expectedValue)
     })
   test('should be enclosed with a section element',
     () => {
