@@ -1,5 +1,7 @@
+@import '../../set-style-prop';
+
 section.todos {
-  background: #444;
+  background: setStyleProp('background');
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -7,16 +9,15 @@ section.todos {
   width: 50%;
   max-width: 500px;
   > header {
-    background: #bbb;
+    background: setStyleProp('background-a');
     padding: 0.25em;
   }
   > section {
-    background: #ccc;
+    background: setStyleProp('background');
     list-style: square;
-    color: #fff;
   > article {
-    color: #eee;
-    background: #111;
+    color: setStyleProp('foreground=a');
+    background: setStyleProp('background-a');
     margin: 0.25em 0;
     padding: 0.5em;
   }

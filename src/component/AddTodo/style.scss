@@ -1,11 +1,13 @@
+@import '../../set-style-prop';
+
 section.add-todo {
-  background: #444;
+  background: setStyleProp('background');
   display: flex;
   flex-direction: column;
   padding: 1em;
   flex-wrap: nowrap;
   > header {
-    background: #bbb;
+    background: setStyleProp('background-a');
     padding: 1em;
   }
   > form {
@@ -14,10 +16,10 @@ section.add-todo {
     > label {
       display: flex;
       flex-direction: column;
-      color: #eee;
+      color: setStyleProp('foreground');
       padding: 0.5em;
       margin: 0.5em 0;
-      background: #222;
+      background: setStyleProp('background-a');
       > input {
         color: #111;
         background: #eee;
@@ -27,8 +29,8 @@ section.add-todo {
     > button {
       cursor: pointer;
       font-weight: 900;
-      color: #111;
-      background: orange;
+      color: setStyleProp('foreground');
+      background: setStyleProp('action');
       padding: 1em;
       align-self: flex-end;
     }
