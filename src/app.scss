@@ -1,0 +1,12 @@
+section.todo-app {
+  font-family: sans-serif;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  > header {
+    color: #eee;
+    background: #222;
+    padding: 1em;
+  }
+}

@@ -14,12 +14,22 @@ exports[`Todo Application matches a former snapshot 1`] = `
       Add A Todo
     </header>
     <form>
-      <input
-        name="title"
-      />
-      <input
-        name="description"
-      />
+      <label>
+        <span>
+          Title
+        </span>
+        <input
+          name="title"
+        />
+      </label>
+      <label>
+        <span>
+          Description
+        </span>
+        <input
+          name="description"
+        />
+      </label>
       <button
         onClick={[Function]}
         type="submit"

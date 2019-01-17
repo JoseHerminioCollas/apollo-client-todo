@@ -1,7 +1,7 @@
-
 import React from 'react'
 import { Query } from 'react-apollo'
 import GET_TODOS from '../../graphql/get-todos'
+import './style.scss'
 
 const Todos = () => (
   <Query query={GET_TODOS}>
@@ -10,7 +10,8 @@ const Todos = () => (
       if (error) return <li>Error :(</li>
 
       return (
-        <section>
+        <section className="todos">
+          <header>Todos</header>
           <ul>
             {data.todos.map(({ title, description }) => (
               <li key={`${title}new Date()`}>

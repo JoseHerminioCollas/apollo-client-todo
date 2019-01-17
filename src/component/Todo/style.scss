@@ -1,0 +1,26 @@
+section.todos {
+  background: #444;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  flex-wrap: nowrap;
+  > header {
+    background: #bbb;
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+  > ul {
+    background: #ccc;
+    border-radius: 0.5em;
+    list-style: square;
+    color: #fff;
+  }
+  > ul > li {
+    list-style: square outside none;
+    color: #eee;
+    background: #111;
+    margin: 0.5em 0;
+    padding: 0.25em;
+    border-radius: 0.25em 0 0 0.25em;
+  }
+}

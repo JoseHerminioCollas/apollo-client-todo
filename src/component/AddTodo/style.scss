@@ -1,0 +1,33 @@
+section.add-todo {
+  background: #444;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  flex-wrap: nowrap;
+  > header {
+    background: #bbb;
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+  > form > label > input {
+    color: #111;
+    background: #eee;
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
+  > form > label {
+    display: flex;
+    flex-direction: column;
+    color: #eee;
+    padding: 0.5em;
+    border: 1px solid #eee;
+    border-radius: 0.5em;
+    margin: 0.5em 0;
+  }
+  > form > button {
+    color: #eee;
+    background: #333;
+    padding: 1em;
+    border-radius: 0.5em;
+  }
+}

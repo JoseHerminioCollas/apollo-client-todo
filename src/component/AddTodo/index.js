@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 
 import ADD_TODO from '../../graphql/AddTodo'
 import GET_TODOS from '../../graphql/get-todos'
+import './style.scss'
 
 const AddTodo = () => {
   let titleInput = ''
@@ -35,18 +36,24 @@ const AddTodo = () => {
         <section className="add-todo">
           <header>Add A Todo</header>
           <form>
-            <input
-              name="title"
-              ref={(node) => {
-                titleInput = node
-              }}
-            />
-            <input
-              name="description"
-              ref={(node) => {
-                descriptionInput = node
-              }}
-            />
+            <label>
+              <span>Title</span>
+              <input
+                name="title"
+                ref={(node) => {
+                  titleInput = node
+                }}
+              />
+            </label>
+            <label>
+              <span>Description</span>
+              <input
+                name="description"
+                ref={(node) => {
+                  descriptionInput = node
+                }}
+              />
+            </label>
             <button
               type="submit"
               onClick={(e) => {
