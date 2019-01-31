@@ -4,6 +4,7 @@ import { Mutation } from 'react-apollo'
 import ADD_TODO from '../../graphql/AddTodo'
 import GET_TODOS from '../../graphql/get-todos'
 import './style.scss'
+import apolloClient from '../../apollo-client'
 
 const AddTodo = () => {
   let titleInput = ''
@@ -19,16 +20,18 @@ const AddTodo = () => {
             query: GET_TODOS,
           })
           // optimistic update, write to cache
-          cache.writeQuery({
+          apolloClient.writeQuery({
             query: GET_TODOS,
             data: {
               todos: todos.concat([{
+                id: 100,
                 __typename: 'Todo',
                 title: addTodo.title,
                 description: addTodo.description,
               }]),
             },
           })
+          apolloClient.queryManager.broadcastQueries()
         }
       }}
     >

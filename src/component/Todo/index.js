@@ -4,7 +4,9 @@ import GET_TODOS from '../../graphql/get-todos'
 import './style.scss'
 
 const Todos = () => (
-  <Query query={GET_TODOS}>
+  <Query
+    query={GET_TODOS}
+  >
     {({ loading, error, data }) => {
       if (loading) return <li>Loading...</li>
       if (error) return <li>Error :(</li>
