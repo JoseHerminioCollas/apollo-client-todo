@@ -31,7 +31,7 @@ const AddTodo = () => {
               }]),
             },
           })
-          apolloClient.queryManager.broadcastQueries()
+          // apolloClient.queryManager.broadcastQueries()
         }
       }}
     >
