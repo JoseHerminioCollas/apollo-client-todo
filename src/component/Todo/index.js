@@ -3,13 +3,21 @@ import { Query } from 'react-apollo'
 import GET_TODOS from '../../graphql/get-todos'
 import './style.scss'
 
+const offset = 3
+
 const Todos = () => (
   <Query
     query={GET_TODOS}
+    fetchPolicy="cache-and-network"
   >
-    {({ loading, error, data }) => {
-      if (loading) return <li>Loading...</li>
-      if (error) return <li>Error :(</li>
+    {({
+      loading,
+      error,
+      data,
+      fetchMore,
+    }) => {
+      if (loading) return <div>Loading...</div>
+      if (error) return <div>Error</div>
 
       return (
         <section className="todos">
@@ -23,6 +31,21 @@ const Todos = () => (
               </article>
             ))}
           </section>
+          <button
+            type="submit"
+            onClick={() => {
+              fetchMore({
+                variables: {
+                  first: data.todos.length,
+                  offset,
+                },
+                updateQuery: (prev, { fetchMoreResult }) => Object.assign({}, prev,
+                  { todos: [...prev.todos, ...fetchMoreResult.todos] }),
+              })
+            }}
+          >
+            More Todos
+          </button>
         </section>
       )
     } }
