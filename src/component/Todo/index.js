@@ -3,11 +3,15 @@ import { Query } from 'react-apollo'
 import GET_TODOS from '../../graphql/get-todos'
 import './style.scss'
 
-const offset = 3
+const offset = 2
 
 const Todos = () => (
   <Query
     query={GET_TODOS}
+    variables={{
+      first: 0,
+      offset,
+    }}
     fetchPolicy="cache-and-network"
   >
     {({
@@ -23,7 +27,7 @@ const Todos = () => (
         <section className="todos">
           <header>Todos</header>
           <section>
-            {data.todos.map(({ title, description }) => (
+            {data.todos.todos.map(({ title, description }) => (
               <article key={`${title}new Date()`}>
                 {title}
                 :
@@ -31,21 +35,40 @@ const Todos = () => (
               </article>
             ))}
           </section>
-          <button
-            type="submit"
-            onClick={() => {
-              fetchMore({
-                variables: {
-                  first: data.todos.length,
-                  offset,
-                },
-                updateQuery: (prev, { fetchMoreResult }) => Object.assign({}, prev,
-                  { todos: [...prev.todos, ...fetchMoreResult.todos] }),
-              })
-            }}
-          >
-            More Todos
-          </button>
+          <article>
+            <p>
+              Viewing &nbsp;
+              {data.todos.todos.length}
+              &nbsp;of a total of &nbsp;
+              {data.todos.totalCount}
+            </p>
+          </article>
+          {
+            (data.todos.todos.length !== data.todos.totalCount)
+            && (
+              <button
+                type="submit"
+                onClick={() => {
+                  fetchMore({
+                    variables: {
+                      first: data.todos.todos.length,
+                      offset,
+                    },
+                    updateQuery: (prev, { fetchMoreResult }) => Object.assign({}, prev,
+                      {
+                        todos: {
+                          __typename: 'TodoResult',
+                          todos: [...prev.todos.todos, ...fetchMoreResult.todos.todos],
+                          totalCount: prev.todos.totalCount,
+                        },
+                      }),
+                  })
+                }}
+              >
+                Get More Todos
+              </button>
+            )
+          }
         </section>
       )
     } }

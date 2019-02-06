@@ -18,17 +18,31 @@ const AddTodo = () => {
         if (cache.data.data.ROOT_QUERY) {
           const { todos } = cache.readQuery({
             query: GET_TODOS,
+            variables: {
+              first: 0,
+              offset: 2,
+            },
           })
           // optimistic update, write to cache
           apolloClient.writeQuery({
             query: GET_TODOS,
+            variables: {
+              first: 0,
+              offset: 2,
+            },
             data: {
-              todos: todos.concat([{
-                id: 100,
-                __typename: 'Todo',
-                title: addTodo.title,
-                description: addTodo.description,
-              }]),
+              todos: {
+                __typename: 'TodosResult',
+                totalCount: todos.totalCount + 1,
+                todos: [
+                  {
+                    id: 100,
+                    __typename: 'Todo',
+                    title: addTodo.title,
+                    description: addTodo.description,
+                  },
+                ].concat(todos.todos),
+              },
             },
           })
         }
